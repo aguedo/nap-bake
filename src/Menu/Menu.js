@@ -1,4 +1,5 @@
 import db from "../db";
+import chocolateCupcakes1 from "../resources/chocolateCupcakes1.jpeg";
 
 function ItemCart({ addToCart, menuItem }) {
   return (
@@ -21,6 +22,7 @@ function ChocolateCupcakes({ addToCart, menu }) {
   const details = db.menu.chocolateCupcakes;
   return (
     <div className="bg-red-50">
+      <img src={chocolateCupcakes1} alt="logo" />
       <p>{details.name}</p>
       <ItemCart id={menuItem.id} addToCart={addToCart} menuItem={menuItem} />
     </div>

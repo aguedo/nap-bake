@@ -38,7 +38,7 @@ function VanillaCake({ addToCart, menu }) {
   );
 }
 
-function Menu({ addToCart, menu }) {
+function BakeMenu({ addToCart, menu }) {
   return (
     <div>
       <hr />
@@ -49,4 +49,4 @@ function Menu({ addToCart, menu }) {
   );
 }
 
-export default Menu;
+export default BakeMenu;

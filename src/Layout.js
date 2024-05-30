@@ -26,9 +26,9 @@ export default function Layout({ menu }) {
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
           <span className="text-sm sm:text-center">
             © 2024{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
+            <Link to="/" className="hover:underline">
               Naperville Bake.
-            </a>
+            </Link>
           </span>
           <ul className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">
             <li>

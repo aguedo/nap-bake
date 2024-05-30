@@ -3,12 +3,23 @@ const db = {
     chocolateCupcakes: {
       id: "chocolateCupcakes",
       name: "Chocolate Cupcakes",
-      inCart: 0,
+      category: "cupcake",
+      link: "/menu/chocolatecupcakes",
+    },
+    vanillaCupcakes: {
+      id: "vanillaCupcakes",
+      name: "Vanilla Cupcakes",
+      category: "cupcake",
     },
     vanillaCake: {
       id: "vanillaCake",
       name: "Vanilla Cake",
-      inCart: 0,
+      category: "cake",
+    },
+    strawberryCake: {
+      id: "strawberryCake",
+      name: "Strawberry Cake",
+      category: "cake",
     },
   },
 };

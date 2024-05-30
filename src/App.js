@@ -14,8 +14,16 @@ export default function App() {
       id: "chocolateCupcakes",
       inCart: 0,
     },
+    vanillaCupcakes: {
+      id: "vanillaCupcakes",
+      inCart: 0,
+    },
     vanillaCake: {
       id: "vanillaCake",
+      inCart: 0,
+    },
+    strawberryCake: {
+      id: "strawberryCake",
       inCart: 0,
     },
   });

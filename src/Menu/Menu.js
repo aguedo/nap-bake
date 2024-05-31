@@ -1,10 +1,6 @@
 import React from "react";
 import db from "../db";
 import { Link } from "react-router-dom";
-import chocolateCupcakes1 from "../resources/chocolateCupcakes1.jpeg";
-import vanillaCupcakes1 from "../resources/vanillaCupcakes1.jpeg";
-import strawberryCake1 from "../resources/strawberryCake1.jpeg";
-import vanillaCake1 from "../resources/vanillaCake1.jpeg";
 
 export default function BakeMenu({ addToCart, menu }) {
   const [textFilter, setTextFilter] = React.useState("");
@@ -18,7 +14,6 @@ export default function BakeMenu({ addToCart, menu }) {
 
   return (
     <div>
-      {/* <div className="grid lg:grid-rows-1 xs:grid-rows-2 grid-flow-col mt-10 mb-8 gap-4 justify-center"> */}
       <div className="grid-flow-row auto-rows-max mt-6 mb-8 justify-center">
         <input
           type="text"
@@ -77,7 +72,7 @@ function ChocolateCupcakes({ addToCart, menu }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
-        <img className="w-full" src={chocolateCupcakes1} alt={details.name} />
+        <img className="w-full" src={details.img} alt={details.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
@@ -100,7 +95,7 @@ function VanillaCupcakes({ addToCart, menu }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
-        <img className="w-full" src={vanillaCupcakes1} alt={details.name} />
+        <img className="w-full" src={details.img} alt={details.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
@@ -123,7 +118,7 @@ function VanillaCake({ addToCart, menu }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
-        <img className="w-full" src={vanillaCake1} alt={details.name} />
+        <img className="w-full" src={details.img} alt={details.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
@@ -146,7 +141,7 @@ function StrawberryCake({ addToCart, menu }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
-        <img className="w-full" src={strawberryCake1} alt={details.name} />
+        <img className="w-full" src={details.img} alt={details.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">

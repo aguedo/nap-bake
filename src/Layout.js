@@ -9,7 +9,6 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import logo from "./resources/logo.jpeg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -85,7 +84,7 @@ function NavigationBar({ menu }) {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src={logo}
+                    src="https://aguedo.github.io/nap-bake-gp/resources/logo.jpeg"
                     alt="Naperville Bake"
                   />
                 </div>

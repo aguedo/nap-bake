@@ -1,8 +1,9 @@
 import React from "react";
 import db from "../db";
 import { Link } from "react-router-dom";
+import ItemCart from "../ItemCart";
 
-export default function BakeMenu({ addToCart, menu }) {
+export default function BakeMenu({ updateCart, menu }) {
   const [textFilter, setTextFilter] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   function filterMenu(menuItem) {
@@ -30,43 +31,94 @@ export default function BakeMenu({ addToCart, menu }) {
           <option value="all">All</option>
           <option value="cupcake">Cupcakes</option>
           <option value="cake">Cakes</option>
+          <option value="cookie">Cookies</option>
         </select>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 justify-center gap-4 text-[#4E342E]">
         {filterMenu(db.menu.chocolateCupcakes) && (
-          <ChocolateCupcakes addToCart={addToCart} menu={menu} />
+          <ChocolateCupcakes updateCart={updateCart} menu={menu} />
         )}
         {filterMenu(db.menu.vanillaCupcakes) && (
-          <VanillaCupcakes addToCart={addToCart} menu={menu} />
+          <VanillaCupcakes updateCart={updateCart} menu={menu} />
+        )}
+        {filterMenu(db.menu.guavaPastries) && (
+          <GuavaPastries updateCart={updateCart} menu={menu} />
+        )}
+        {filterMenu(db.menu.napoleons) && (
+          <Napoleons updateCart={updateCart} menu={menu} />
         )}
         {filterMenu(db.menu.vanillaCake) && (
-          <VanillaCake addToCart={addToCart} menu={menu} />
+          <VanillaCake updateCart={updateCart} menu={menu} />
         )}
         {filterMenu(db.menu.strawberryCake) && (
-          <StrawberryCake addToCart={addToCart} menu={menu} />
+          <StrawberryCake updateCart={updateCart} menu={menu} />
+        )}
+        {filterMenu(db.menu.chocolateCake) && (
+          <ChocolateCake updateCart={updateCart} menu={menu} />
+        )}
+        {filterMenu(db.menu.butterCookies) && (
+          <ButterCookies updateCart={updateCart} menu={menu} />
         )}
       </div>
     </div>
   );
 }
 
-function ItemCart({ addToCart, menuItem }) {
+export function ButterCookies({ updateCart, menu }) {
+  const menuItem = menu.butterCookies;
+  const details = db.menu.butterCookies;
   return (
-    <div className="text-[#4E342E]">
-      <span className="inline-block bg-[#A8E6CF] rounded-full px-3 py-1 text-xs font-semibold mr-2 mb-2">
-        Qty: {menuItem.inCart}
-      </span>
-      <button
-        className="bg-[#FFC1CC] hover:bg-[#D48E8E] text-xs font-bold py-1 px-4 rounded-full"
-        onClick={() => addToCart(menuItem.id)}
-      >
-        Add to cart
-      </button>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+      <Link to={details.link}>
+        <img className="w-full" src={details.img} alt={details.name} />
+      </Link>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
+          <Link to={details.link} className="underline">
+            {details.name}
+          </Link>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
+      </div>
     </div>
   );
 }
 
-function ChocolateCupcakes({ addToCart, menu }) {
+function ChocolateCake({ updateCart, menu }) {
+  const menuItem = menu.chocolateCake;
+  const details = db.menu.chocolateCake;
+  return (
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+      <Link to={details.link}>
+        <img className="w-full" src={details.img} alt={details.name} />
+      </Link>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
+          <Link to={details.link} className="underline">
+            {details.name}
+          </Link>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ChocolateCupcakes({ updateCart, menu }) {
   const menuItem = menu.chocolateCupcakes;
   const details = db.menu.chocolateCupcakes;
   return (
@@ -83,15 +135,19 @@ function ChocolateCupcakes({ addToCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart id={menuItem.id} addToCart={addToCart} menuItem={menuItem} />
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
       </div>
     </div>
   );
 }
 
-function VanillaCupcakes({ addToCart, menu }) {
-  const menuItem = menu.vanillaCupcakes;
-  const details = db.menu.vanillaCupcakes;
+function GuavaPastries({ updateCart, menu }) {
+  const menuItem = menu.guavaPastries;
+  const details = db.menu.guavaPastries;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
@@ -106,15 +162,19 @@ function VanillaCupcakes({ addToCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart id={menuItem.id} addToCart={addToCart} menuItem={menuItem} />
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
       </div>
     </div>
   );
 }
 
-function VanillaCake({ addToCart, menu }) {
-  const menuItem = menu.vanillaCake;
-  const details = db.menu.vanillaCake;
+function Napoleons({ updateCart, menu }) {
+  const menuItem = menu.napoleons;
+  const details = db.menu.napoleons;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
       <Link to={details.link}>
@@ -129,13 +189,17 @@ function VanillaCake({ addToCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart id={menuItem.id} addToCart={addToCart} menuItem={menuItem} />
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
       </div>
     </div>
   );
 }
 
-function StrawberryCake({ addToCart, menu }) {
+function StrawberryCake({ updateCart, menu }) {
   const menuItem = menu.strawberryCake;
   const details = db.menu.strawberryCake;
   return (
@@ -152,7 +216,65 @@ function StrawberryCake({ addToCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart id={menuItem.id} addToCart={addToCart} menuItem={menuItem} />
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
+      </div>
+    </div>
+  );
+}
+
+function VanillaCake({ updateCart, menu }) {
+  const menuItem = menu.vanillaCake;
+  const details = db.menu.vanillaCake;
+  return (
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+      <Link to={details.link}>
+        <img className="w-full" src={details.img} alt={details.name} />
+      </Link>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
+          <Link to={details.link} className="underline">
+            {details.name}
+          </Link>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
+      </div>
+    </div>
+  );
+}
+
+function VanillaCupcakes({ updateCart, menu }) {
+  const menuItem = menu.vanillaCupcakes;
+  const details = db.menu.vanillaCupcakes;
+  return (
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+      <Link to={details.link}>
+        <img className="w-full" src={details.img} alt={details.name} />
+      </Link>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
+          <Link to={details.link} className="underline">
+            {details.name}
+          </Link>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <ItemCart
+          id={menuItem.id}
+          updateCart={updateCart}
+          menuItem={menuItem}
+        />
       </div>
     </div>
   );

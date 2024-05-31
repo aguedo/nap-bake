@@ -7,6 +7,7 @@ import Home from "./Home";
 import Cart from "./Cart";
 import VanillaCake from "./Details/VanillaCake";
 import ChocolateCupcakes from "./Details/ChocolateCupcakes";
+import { upload } from "@testing-library/user-event/dist/upload";
 
 export default function App() {
   const [menu, setMenu] = useState({
@@ -26,13 +27,29 @@ export default function App() {
       id: "strawberryCake",
       inCart: 0,
     },
+    chocolateCake: {
+      id: "chocolateCake",
+      inCart: 0,
+    },
+    butterCookies: {
+      id: "butterCookies",
+      inCart: 0,
+    },
+    guavaPastries: {
+      id: "guavaPastries",
+      inCart: 0,
+    },
+    napoleons: {
+      id: "napoleons",
+      inCart: 0,
+    },
   });
 
-  function addToCart(id) {
+  function updateCart(id, quantity = 1) {
     setMenu((prevMenu) => {
       return {
         ...prevMenu,
-        [id]: { ...prevMenu[id], inCart: prevMenu[id].inCart + 1 },
+        [id]: { ...prevMenu[id], inCart: prevMenu[id].inCart + quantity },
       };
     });
   }
@@ -41,13 +58,17 @@ export default function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout menu={menu} />}>
-          <Route index element={<Home addToCart={addToCart} menu={menu} />} />
+          <Route index element={<Home />} />
           <Route
             exact
             path="/menu"
-            element={<BakeMenu addToCart={addToCart} menu={menu} />}
+            element={<BakeMenu updateCart={updateCart} menu={menu} />}
           />
-          <Route exact path="/cart" element={<Cart menu={menu} />} />
+          <Route
+            exact
+            path="/cart"
+            element={<Cart menu={menu} updateCart={upload} />}
+          />
           <Route exact path="/menu/vanillacake" element={<VanillaCake />} />
           <Route
             exact

@@ -1,6 +1,7 @@
 import db from "./db";
+// import { ButterCookies } from "./Menu/ButterCookies";
 
-export default function Cart({ menu }) {
+export default function Cart({ menu, updateCart }) {
   const itemsInCart = Object.entries(menu)
     .filter(([_, value]) => value.inCart > 0)
     .map(([key, value]) => {
@@ -17,6 +18,8 @@ export default function Cart({ menu }) {
       <p>Cart</p>
       <ul> {itemsInCart}</ul>
       <hr />
+
+      {/* <ButterCookies updateCart={updateCart} menu={menu} /> */}
     </div>
   );
 }

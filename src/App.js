@@ -7,7 +7,6 @@ import Home from "./Home";
 import Cart from "./Cart";
 import VanillaCake from "./Details/VanillaCake";
 import ChocolateCupcakes from "./Details/ChocolateCupcakes";
-import { upload } from "@testing-library/user-event/dist/upload";
 
 export default function App() {
   const [menu, setMenu] = useState({

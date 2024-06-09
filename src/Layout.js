@@ -16,9 +16,9 @@ function classNames(...classes) {
 
 export default function Layout({ menu }) {
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between">
       <NavigationBar menu={menu} />
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mb-auto mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <Outlet />
       </div>
       <footer className="bg-[#4E342E] text-[#FFF8E7] mt-10">
@@ -136,15 +136,15 @@ function NavigationBar({ menu }) {
                 <Link
                   to="/cart"
                   type="button"
-                  className="relative rounded-full p-1 text-[#4E342E] hover:bg-[#FFC1CC] focus:outline-none "
+                  className="relative rounded-full p-1 text-[#4E342E] focus:outline-none px-2 py-1 hover:bg-[#FFC1CC]"
                 >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View Cart</span>
-                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                  <div className="flex">
+                    <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                    <span className="relative bg-[#A8E6CF] text-[#4E342E] rounded-full px-3 py-1 text-xs font-semibold">
+                      {itemsCount}
+                    </span>
+                  </div>
                 </Link>
-                <span className="relative bg-[#A8E6CF] text-[#4E342E] rounded-full px-3 py-1 text-xs font-semibold">
-                  {itemsCount}
-                </span>
               </div>
             </div>
           </div>

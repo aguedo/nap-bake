@@ -1,7 +1,7 @@
 import React from "react";
 import db from "../db";
 import { Link } from "react-router-dom";
-import ItemCart from "../ItemCart";
+import CartPanel from "../CartPanel";
 
 export default function BakeMenu({ updateCart, menu }) {
   const [textFilter, setTextFilter] = React.useState("");
@@ -65,184 +65,184 @@ export default function BakeMenu({ updateCart, menu }) {
 }
 
 export function ButterCookies({ updateCart, menu }) {
-  const menuItem = menu.butterCookies;
-  const details = db.menu.butterCookies;
+  const prodItem = menu.butterCookies;
+  const prodDetails = db.menu.butterCookies;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function ChocolateCake({ updateCart, menu }) {
-  const menuItem = menu.chocolateCake;
-  const details = db.menu.chocolateCake;
+  const prodItem = menu.chocolateCake;
+  const prodDetails = db.menu.chocolateCake;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function ChocolateCupcakes({ updateCart, menu }) {
-  const menuItem = menu.chocolateCupcakes;
-  const details = db.menu.chocolateCupcakes;
+  const prodItem = menu.chocolateCupcakes;
+  const prodDetails = db.menu.chocolateCupcakes;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function GuavaPastries({ updateCart, menu }) {
-  const menuItem = menu.guavaPastries;
-  const details = db.menu.guavaPastries;
+  const prodItem = menu.guavaPastries;
+  const prodDetails = db.menu.guavaPastries;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function Napoleons({ updateCart, menu }) {
-  const menuItem = menu.napoleons;
-  const details = db.menu.napoleons;
+  const prodItem = menu.napoleons;
+  const prodDetails = db.menu.napoleons;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function StrawberryCake({ updateCart, menu }) {
-  const menuItem = menu.strawberryCake;
-  const details = db.menu.strawberryCake;
+  const prodItem = menu.strawberryCake;
+  const prodDetails = db.menu.strawberryCake;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function VanillaCake({ updateCart, menu }) {
-  const menuItem = menu.vanillaCake;
-  const details = db.menu.vanillaCake;
+  const prodItem = menu.vanillaCake;
+  const prodDetails = db.menu.vanillaCake;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );
 }
 
 function VanillaCupcakes({ updateCart, menu }) {
-  const menuItem = menu.vanillaCupcakes;
-  const details = db.menu.vanillaCupcakes;
+  const prodItem = menu.vanillaCupcakes;
+  const prodDetails = db.menu.vanillaCupcakes;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
-      <Link to={details.link}>
-        <img className="w-full" src={details.img} alt={details.name} />
+      <Link to={prodDetails.link}>
+        <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-[#D48E8E] hover:text-[#A8E6CF]">
-          <Link to={details.link} className="underline">
-            {details.name}
+          <Link to={prodDetails.link} className="underline">
+            {prodDetails.name}
           </Link>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart updateCart={updateCart} menuItem={menuItem} />
+        <CartPanel updateCart={updateCart} prodItem={prodItem} />
       </div>
     </div>
   );

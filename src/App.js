@@ -67,7 +67,7 @@ export default function App() {
           <Route
             exact
             path="/cart"
-            element={<Cart menu={menu} updateCart={upload} />}
+            element={<Cart menu={menu} updateCart={updateCart} />}
           />
           <Route exact path="/menu/vanillacake" element={<VanillaCake />} />
           <Route

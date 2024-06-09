@@ -21,10 +21,10 @@ export default function BakeMenu({ updateCart, menu }) {
           value={textFilter}
           onChange={(e) => setTextFilter(e.target.value)}
           placeholder="Search"
-          className="w-64 border-2 p-2 rounded-lg mt-2 mr-4 border-[#A8E6CF] text-[#4E342E]"
+          className="w-64 border-2 p-2 rounded-lg mt-2 mr-4 border-[#A8E6CF] text-[#4E342E] focus:outline-none focus:border-[#D48E8E]"
         />
         <select
-          className="w-48 border-2 p-2 rounded-lg mt-2 border-[#A8E6CF] text-[#4E342E] focus:border-[#A8E6CF]"
+          className="w-48 border-2 p-2 rounded-lg mt-2 border-[#A8E6CF] text-[#4E342E] focus:outline-none focus:border-[#D48E8E]"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
@@ -81,11 +81,7 @@ export function ButterCookies({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -108,11 +104,7 @@ function ChocolateCake({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -135,11 +127,7 @@ function ChocolateCupcakes({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -162,11 +150,7 @@ function GuavaPastries({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -189,11 +173,7 @@ function Napoleons({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -216,11 +196,7 @@ function StrawberryCake({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -243,11 +219,7 @@ function VanillaCake({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );
@@ -270,11 +242,7 @@ function VanillaCupcakes({ updateCart, menu }) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <ItemCart
-          id={menuItem.id}
-          updateCart={updateCart}
-          menuItem={menuItem}
-        />
+        <ItemCart updateCart={updateCart} menuItem={menuItem} />
       </div>
     </div>
   );

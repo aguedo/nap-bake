@@ -20,8 +20,9 @@ export default function CartPanel({ updateCart, prodItem }) {
       <div className="text-sm mb-1">
         <span className="text-xs">$</span>
         <span className="text-2xl">{prodDetails.price}</span>
+        <span className="ml-2">($2.50/cupcake)</span>
         <span className="ml-2">
-          (Subtotal ${prodDetails.price * prodItem.inCart})
+          Subtotal ${prodDetails.price * prodItem.inCart}
         </span>
       </div>
       <span

@@ -5,6 +5,7 @@ import "./App.css";
 import BakeMenu from "./Menu/Menu";
 import Home from "./Home";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 import VanillaCake from "./Details/VanillaCake";
 import ChocolateCupcakes from "./Details/ChocolateCupcakes";
 
@@ -67,6 +68,11 @@ export default function App() {
             exact
             path="/cart"
             element={<Cart menu={menu} updateCart={updateCart} />}
+          />
+          <Route
+            exact
+            path="/cart/checkout"
+            element={<Checkout menu={menu} />}
           />
           <Route exact path="/menu/vanillacake" element={<VanillaCake />} />
           <Route

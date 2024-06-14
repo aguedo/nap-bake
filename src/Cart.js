@@ -16,6 +16,19 @@ export default function Cart({ menu, updateCart }) {
   );
   return (
     <div className="mt-6 mb-8 text-[#4E342E]">
+      {/* <div className="flex">
+        <div className="grow"></div>
+        <div className="w-auto font-medium text-right pr-4">
+          <p>
+            Subtotal ({itemsCount} items):{" "}
+            <span className="text-lg font-semibold">${subtotal}</span>
+          </p>
+          <button className="mt-2 bg-[#FFC107] hover:bg-[#FFA000] text-[#4E342E] hover:text[#FFF8E7] py-1 px-4 rounded-full">
+            Place Order
+          </button>
+        </div>
+      </div> */}
+
       {items.map((item, index) => (
         <div className="max-w-sm w-full md:max-w-full md:flex mb-4" key={index}>
           <div
@@ -54,13 +67,20 @@ export default function Cart({ menu, updateCart }) {
       <div className="flex">
         <div className="grow"></div>
         <div className="w-auto font-medium text-right pr-4">
-          <p>
-            Subtotal ({itemsCount} items):{" "}
-            <span className="text-lg font-semibold">${subtotal}</span>
-          </p>
-          <button className="mt-2 bg-[#FFC107] hover:bg-[#FFA000] text-[#4E342E] hover:text[#FFF8E7] py-1 px-4 rounded-full">
-            Place Order
-          </button>
+          <div>
+            <p>
+              Subtotal ({itemsCount} items):{" "}
+              <span className="text-lg font-semibold">${subtotal}</span>
+            </p>
+          </div>
+          <div className="mt-4">
+            <Link
+              to="/cart/checkout"
+              className="text-md bg-[#FFC107] hover:bg-[#FFA000] text-[#4E342E] hover:text[#FFF8E7] py-3 px-4 rounded-full"
+            >
+              Proceed to checkout
+            </Link>
+          </div>
         </div>
       </div>
     </div>

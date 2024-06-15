@@ -45,11 +45,20 @@ export default function App() {
     },
   });
 
+  const [contactInfo, setContactInfo] = useState({
+    fullName: "",
+    phone: "",
+    address: "",
+  });
+
   function updateCart(id, quantity = 1) {
     setMenu((prevMenu) => {
       return {
         ...prevMenu,
-        [id]: { ...prevMenu[id], inCart: prevMenu[id].inCart + quantity },
+        [id]: {
+          ...prevMenu[id],
+          inCart: Math.max(prevMenu[id].inCart + quantity, 0),
+        },
       };
     });
   }
@@ -71,8 +80,14 @@ export default function App() {
           />
           <Route
             exact
-            path="/cart/checkout"
-            element={<Checkout menu={menu} />}
+            path="/checkout"
+            element={
+              <Checkout
+                menu={menu}
+                contactInfo={contactInfo}
+                setContactInfo={setContactInfo}
+              />
+            }
           />
           <Route exact path="/menu/vanillacake" element={<VanillaCake />} />
           <Route

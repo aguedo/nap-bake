@@ -45,6 +45,11 @@ export default function Layout({ menu }) {
                 Cart
               </Link>
             </li>
+            <li>
+              <Link to="/checkout" className="hover:underline me-4 md:me-6">
+                Checkout
+              </Link>
+            </li>
           </ul>
         </div>
       </footer>
@@ -129,6 +134,19 @@ function NavigationBar({ menu }) {
                     >
                       Cart
                     </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        classNames(
+                          isActive
+                            ? "bg-[#D48E8E] text-[#A8E6CF]"
+                            : "text-[#4E342E] hover:bg-[#FFC1CC]] hover:text-[#D48E8E]",
+                          "rounded-md px-3 py-2 text-sm font-medium"
+                        )
+                      }
+                      to="/checkout"
+                    >
+                      Checkout
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -189,6 +207,19 @@ function NavigationBar({ menu }) {
                 to="/cart"
               >
                 Cart
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  classNames(
+                    isActive
+                      ? "bg-[#D48E8E] text-[#A8E6CF]"
+                      : "text-[#4E342E] hover:bg-[#FFC1CC]] hover:text-[#D48E8E]",
+                    "block rounded-md px-3 py-2 text-base font-medium"
+                  )
+                }
+                to="/checkout"
+              >
+                Checkout
               </NavLink>
             </div>
           </DisclosurePanel>

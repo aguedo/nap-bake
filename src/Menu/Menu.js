@@ -68,7 +68,7 @@ export function ButterCookies({ updateCart, menu }) {
   const prodItem = menu.butterCookies;
   const prodDetails = db.menu.butterCookies;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -91,7 +91,7 @@ function ChocolateCake({ updateCart, menu }) {
   const prodItem = menu.chocolateCake;
   const prodDetails = db.menu.chocolateCake;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -114,7 +114,7 @@ function ChocolateCupcakes({ updateCart, menu }) {
   const prodItem = menu.chocolateCupcakes;
   const prodDetails = db.menu.chocolateCupcakes;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -137,7 +137,7 @@ function GuavaPastries({ updateCart, menu }) {
   const prodItem = menu.guavaPastries;
   const prodDetails = db.menu.guavaPastries;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -160,7 +160,7 @@ function Napoleons({ updateCart, menu }) {
   const prodItem = menu.napoleons;
   const prodDetails = db.menu.napoleons;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -183,7 +183,7 @@ function StrawberryCake({ updateCart, menu }) {
   const prodItem = menu.strawberryCake;
   const prodDetails = db.menu.strawberryCake;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -206,7 +206,7 @@ function VanillaCake({ updateCart, menu }) {
   const prodItem = menu.vanillaCake;
   const prodDetails = db.menu.vanillaCake;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>
@@ -229,7 +229,7 @@ function VanillaCupcakes({ updateCart, menu }) {
   const prodItem = menu.vanillaCupcakes;
   const prodDetails = db.menu.vanillaCupcakes;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7]">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-[#FFF8E7] pb-2">
       <Link to={prodDetails.link}>
         <img className="w-full" src={prodDetails.img} alt={prodDetails.name} />
       </Link>

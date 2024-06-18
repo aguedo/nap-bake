@@ -6,6 +6,7 @@ import BakeMenu from "./Menu/Menu";
 import Home from "./Home";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import Confirmation from "./Confirmation";
 import VanillaCake from "./Details/VanillaCake";
 import ChocolateCupcakes from "./Details/ChocolateCupcakes";
 
@@ -49,7 +50,10 @@ export default function App() {
     fullName: "",
     phone: "",
     address: "",
+    deliveryDate: "",
   });
+
+  const [order, setOrder] = useState({});
 
   function updateCart(id, quantity = 1) {
     setMenu((prevMenu) => {
@@ -84,10 +88,17 @@ export default function App() {
             element={
               <Checkout
                 menu={menu}
+                setMenu={setMenu}
                 contactInfo={contactInfo}
                 setContactInfo={setContactInfo}
+                setOrder={setOrder}
               />
             }
+          />
+          <Route
+            exact
+            path="/checkout/confirmation"
+            element={<Confirmation order={order} />}
           />
           <Route exact path="/menu/vanillacake" element={<VanillaCake />} />
           <Route

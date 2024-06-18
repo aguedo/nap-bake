@@ -31,3 +31,8 @@ code {
 .qty-animate-bounce {
   animation: qty-bounce 0.2s infinite;
 }
+
+input:required:user-invalid {
+  border: 2px solid #FF0000;
+  background-color: #FFEBEE;
+}

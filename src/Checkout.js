@@ -1,6 +1,10 @@
+import { useState } from "react";
 import db from "./db";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Checkout({ menu, contactInfo, setContactInfo }) {
+export default function Checkout({ menu, setMenu, contactInfo, setContactInfo, setOrder }) {
+  const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
   const items = Object.entries(menu)
     .filter(([_, value]) => value.inCart > 0)
     .map(([key, value]) => ({
@@ -13,20 +17,58 @@ export default function Checkout({ menu, contactInfo, setContactInfo }) {
     0
   );
 
+  function getOrder() {
+    return {
+      deliveryDate: contactInfo.deliveryDate,
+      contact: {
+        name: contactInfo.fullName,
+        phone: contactInfo.phone,
+        address: contactInfo.address
+      },
+      items: items.map((item) => ({
+        name: item.prodDetails.name,
+        quantity: item.prodItem.inCart,
+        unitPrice: item.prodDetails.price,
+      }))
+    };
+  }
+
   function handleSubmit(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
 
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
+    setSubmitting(true);
+    const order = getOrder();
+    setOrder(order);
+    fetch(
+      // "https://aslanta-shared-api.azurewebsites.net/napbake/create-order", {
+      "https://localhost:7022/napbake/create-order-ping", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(order)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          alert("Oops something went wrong. Please call 702-209-1699 to finish placing your order.")
+          return;
+        }
 
-    // You can pass formData as a fetch body directly:
-    fetch("/some-api", { method: form.method, body: formData });
+        setMenu((prevMenu) => {
+          const newMenu = { ...prevMenu };
+          for (const key in newMenu) {
+            newMenu[key].inCart = 0;
+          }
+          return newMenu;
+        });
 
-    // Or you can work with it as a plain object:
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
+        navigate("/checkout/confirmation", { props: { order } });
+      })
+      .catch((error) => alert("Oops something went wrong. Please call 702-209-1699 to finish placing your order."))
+      .finally((_) => {
+        setSubmitting(false);
+      });
   }
 
   function updateContactInfo(prop, value) {
@@ -60,6 +102,7 @@ export default function Checkout({ menu, contactInfo, setContactInfo }) {
                 </label>
                 <div>
                   <input
+                    required
                     type="text"
                     value={contactInfo.fullName}
                     onChange={(e) =>
@@ -82,11 +125,32 @@ export default function Checkout({ menu, contactInfo, setContactInfo }) {
                 </label>
                 <div className="mt-2">
                   <input
+                    required
+                    type="text"
                     value={contactInfo.phone}
                     onChange={(e) => updateContactInfo("phone", e.target.value)}
-                    type="text"
                     name="phone"
                     id="phone"
+                    className="block w-full border-2 p-2 rounded-lg mt-2 mr-4 border-[#A8E6CF] text-[#4E342E] focus:outline-none focus:border-[#D48E8E]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="deliveryDate"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Delivery Date *
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="datetime-local"
+                    required
+                    value={contactInfo.deliveryDate}
+                    onChange={(e) => updateContactInfo("deliveryDate", e.target.value)}
+                    name="deliveryDate"
+                    id="deliveryDate"
                     className="block w-full border-2 p-2 rounded-lg mt-2 mr-4 border-[#A8E6CF] text-[#4E342E] focus:outline-none focus:border-[#D48E8E]"
                   />
                 </div>
@@ -116,14 +180,25 @@ export default function Checkout({ menu, contactInfo, setContactInfo }) {
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
-              <button type="button" className="text-sm font-semibold leading-6">
-                Cancel
-              </button>
+              {!submitting && <Link className="text-sm font-semibold leading-6" to="/cart">Cancel</Link>}
               <button
                 type="submit"
+                disabled={submitting}
                 className="text-sm font-semibold bg-[#FFC107] hover:bg-[#FFA000] text-[#4E342E] hover:text[#FFF8E7] py-2 px-4 rounded-full"
               >
-                Submit
+                {(submitting &&
+                  <div className="flex">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                  </div>)
+                  || (<div className="flex">
+                    Submit
+                  </div>)
+                }
+
               </button>
             </div>
           </div>
@@ -132,13 +207,13 @@ export default function Checkout({ menu, contactInfo, setContactInfo }) {
             {items.map((item, index) => (
               <div className="max-w-full flex mb-2" key={index}>
                 <div
-                  className="h-16 w-16 flex-none bg-cover rounded-t rounded-l rounded-r-none text-center overflow-hidden"
+                  className="h-16 w-16 flex-none bg-cover rounded-l text-center overflow-hidden"
                   style={{
                     backgroundImage: "url(" + item.prodDetails.img + ")",
                   }}
                   title={item.prodDetails.name}
                 ></div>
-                <div className="w-full border-r-[0.5px] border-b-[0.5px] border-[#D48E8E] border-l-0 border-t-[0.5px] bg-white rounded-b rounded-r pl-4 pr-2 pt-2 flex flex-col justify-between leading-normal">
+                <div className="w-full border-r-[0.5px] border-b-[0.5px] border-[#D48E8E] border-l-0 border-t-[0.5px] bg-white rounded-r pl-4 pr-2 pt-2 flex flex-col justify-between leading-normal">
                   <div>
                     <div className="flex ">
                       <div className="grow">

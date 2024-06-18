@@ -41,8 +41,8 @@ export default function Checkout({ menu, setMenu, contactInfo, setContactInfo, s
     const order = getOrder();
     setOrder(order);
     fetch(
-      // "https://aslanta-shared-api.azurewebsites.net/napbake/create-order", {
-      "https://localhost:7022/napbake/create-order-ping", {
+      "https://aslanta-shared-api.azurewebsites.net/napbake/create-order", {
+      //"https://localhost:7022/napbake/create-order-ping", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

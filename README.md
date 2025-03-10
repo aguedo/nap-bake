@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Build & Deployment
+
+Build React: `npm run build`
+
+Docker Build: `docker buildx build --platform linux/amd64 -t aguedoaslanta/nap-bake:v0.1 --push .`
+
 ## Available Scripts
 
 In the project directory, you can run:

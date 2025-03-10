@@ -89,7 +89,7 @@ function NavigationBar({ menu }) {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://aguedo.github.io/nap-bake-gp/resources/logo.jpeg"
+                    src="https://static.aslanta.com/nap-bake/logo.jpeg"
                     alt="Naperville Bake"
                   />
                 </div>

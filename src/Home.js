@@ -1,9 +1,11 @@
+import BakeMenu from "./Menu/Menu";
+
 export default function Home() {
   return (
     <div
       className="bg-repeat h-900"
       style={{
-        backgroundImage: `url("https://aguedo.github.io/nap-bake-gp/resources/bakeryItemBg.jpeg")`,
+        backgroundImage: `url("https://static.aslanta.com/nap-bake/bakeryItemBg.jpeg")`,
       }}
     >
       <p>

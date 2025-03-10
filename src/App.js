@@ -71,7 +71,7 @@ export default function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout menu={menu} />}>
-          <Route index element={<Home />} />
+          <Route index element={<BakeMenu updateCart={updateCart} menu={menu} />} />
           <Route
             exact
             path="/menu"

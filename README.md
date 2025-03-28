@@ -1,12 +1,8 @@
-# Getting Started with Create React App
+# Reedme
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a demo app using plain React to build a bakery shop.
 
-## Build & Deployment
-
-Build React: `npm run build`
-
-Docker Build: `docker buildx build --platform linux/amd64 -t aguedoaslanta/nap-bake:v0.1 --push .`
+You can see the running demo in [https://bake.aguedo.com](https://bake.aguedo.com)
 
 ## Available Scripts
 
